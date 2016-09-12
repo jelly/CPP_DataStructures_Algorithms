@@ -39,6 +39,7 @@ class Foo
 	private:
 		int bar;
 }
+```
 
 **Explicit constructor** is used to prevent type conversion happening in the following example.
 
