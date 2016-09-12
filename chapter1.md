@@ -125,6 +125,11 @@ Destructor
 
 The destructor is called when an object goes out of scope or is subjected to a delete. Typically used to clean up allocated resources.
 
+
+```
+Foo::~Foo() {
+}
+```
 Copy Constructor
 ----------------
 
