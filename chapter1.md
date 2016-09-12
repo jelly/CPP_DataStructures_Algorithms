@@ -124,3 +124,27 @@ Destructor
 ----------
 
 The destructor is called when an object goes out of scope or is subjected to a delete. Typically used to clean up allocated resources.
+
+Copy Constructor
+----------------
+
+Special constructor that is required to construct a new object, initialized to a copy of the same type of object.
+
+```
+Foo B = C;
+Foo B(C);
+```
+
+Operator=
+----------
+
+Copy assignment operator is called when = is applied to two objects. After they both have been previously constructed.
+
+
+```
+Foo B;
+Foo C;
+B = C;
+```
+
+
