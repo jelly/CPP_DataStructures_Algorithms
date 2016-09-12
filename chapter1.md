@@ -29,7 +29,7 @@ Class Foo
 }
 ```
 
-*Initializer list*, the initializer list is used to initialize data members directly. What happens is as following, Copy constructor of Type class is called to initialize : bar(val). The arguments for the initializer list are used to copy construct "bar" directly. Then the deconstructor for "val" is called since "val" goes out of scope. A normal constructor does the following, constructor for "val" is called, the assignment operator of "Type" is called inside the bdoy of Foo(int val) constructor to assign and then the destructor of "Type" is called since "val" goes out of scope.
+**Initializer list**, the initializer list is used to initialize data members directly. What happens is as following, Copy constructor of Type class is called to initialize : bar(val). The arguments for the initializer list are used to copy construct "bar" directly. Then the deconstructor for "val" is called since "val" goes out of scope. A normal constructor does the following, constructor for "val" is called, the assignment operator of "Type" is called inside the bdoy of Foo(int val) constructor to assign and then the destructor of "Type" is called since "val" goes out of scope.
 
 ```
 class Foo
