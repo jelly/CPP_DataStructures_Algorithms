@@ -70,4 +70,17 @@ A header file such as .h, usually they have header guards to prevent duplicate i
 Scoping operator
 ----------------
 
+:: is called the scoping operator, since otherwise the global scope would be literred with a lot of functions. The syntax is ClassName::member.
 
+C++ Pointers
+-------------
+
+A variable that sotres the address where another object resides in memory.
+
+Foo *obj, the * indicates that obj is a pointer value of obj is the address of the object that it points at.
+
+The address of operator & returns the memory location where an object resides.
+
+Two pointers are equal if the point to the same object. If a pointer variable points to a class type, then a (visible) member of the object being pointed at can be accessed via the -> operator.
+
+C++ allows pointers to be compared with <, for pointers lhs and rhs, lhs < rhs is true if the object pointed at by lhs is stored at a lower memory location than the object pointed at by rhs.
