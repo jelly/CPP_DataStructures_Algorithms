@@ -115,4 +115,9 @@ const string & findMax(const vector<string> & arr)
 }
 ```
 
-G++ luckily throws a compiler warning, -Wreturn-local-addr. Since the local variable is out of scope and already removed, calling and assinging a variable from this function leads to a coredump.
+g++ luckily throws a compiler warning, -Wreturn-local-addr. Since the local variable is out of scope and already removed, calling and assinging a variable from this function leads to a coredump.
+
+Destructor
+----------
+
+The destructor is called when an object goes out of scope or is subjected to a delete. Typically used to clean up allocated resources.
