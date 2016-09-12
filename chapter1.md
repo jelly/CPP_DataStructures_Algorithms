@@ -92,7 +92,9 @@ Parameter passing
 C passes all arguments using call by value, the acual argument is copied into the formal parameter.
 In C++ copying large objects is sometimes rather inefficient, additionally it can be desirable to change the passed value. C++ therefore has three ways to pass arguments:
 
+```
 double avg( const vector<int> & arr, int n, bool & errorFlag);
+```
 
 * call by constant reference, if the value of the argument cannot be changed by the formal parameter If the type is a primive type is call by value (with const) if it's a type is a class type call by constant reference can be used.
 * If the formal parameter should be able to change the value of the actual argument, then you must use call by reference.
