@@ -84,3 +84,35 @@ The address of operator & returns the memory location where an object resides.
 Two pointers are equal if the point to the same object. If a pointer variable points to a class type, then a (visible) member of the object being pointed at can be accessed via the -> operator.
 
 C++ allows pointers to be compared with <, for pointers lhs and rhs, lhs < rhs is true if the object pointed at by lhs is stored at a lower memory location than the object pointed at by rhs.
+
+Parameter passing
+-----------------
+
+C passes all arguments using call by value, the acual argument is copied into the formal parameter.
+In C++ copying large objects is sometimes rather inefficient, additionally it can be desirable to change the passed value. C++ therefore has three ways to pass arguments:
+
+double avg( const vector<int> & arr, int n, bool & errorFlag);
+
+* call by constant reference, if the value of the argument cannot be changed by the formal parameter If the type is a primive type is call by value (with const) if it's a type is a class type call by constant reference can be used.
+* If the formal parameter should be able to change the value of the actual argument, then you must use call by reference.
+
+Return passing
+--------------
+
+When returning a reference, be careful not te return a local variable as the following example does:
+
+```
+const string & findMax(const vector<string> & arr)
+{
+	string maxvalue = arr[0]
+
+	for (int i = 1; i < arr.size(); i++) {
+		if (maxvalue < arr[i] )
+			maxvalue = arr[i];
+	}
+
+	return maxvalue;
+}
+```
+
+G++ luckily throws a compiler warning, -Wreturn-local-addr. Since the local variable is out of scope and already removed, calling and assinging a variable from this function leads to a coredump.
