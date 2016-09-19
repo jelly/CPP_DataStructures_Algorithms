@@ -201,7 +201,7 @@ class Cell
 		{ val = obj; }
 	private:
 		Obj val;
-}
+};
 
 int main()
 {
