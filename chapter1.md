@@ -248,3 +248,38 @@ int main()
 	return 0;
 }
 ```
+
+Function objects
+----------------
+
+The findMax function template expects a class to implement the operator<, if a class does not implement this operator or if we wish to use our custom comparison function we can use a function object. The function object is a class instance which defines the comparison function.
+
+```
+template <typename Obj, typename Cmp>
+const Obj & findMax(const std::vector<Obj> & v, Cmp cmp)
+{
+	int max = 0;
+
+	for (int i = 0; i < v.size(); i++)
+		if (cmp.isSmaller(v[max], v[i]))
+			max = i;
+	return v[max];
+}
+
+class CaseInsentiveCompare
+{
+	public:
+		bool isSmaller(const std::string & lhs, const std::string & rhs) const
+		{ return strcasecmp(lhs.c_str(), rhs.c_str()) < 0; }
+};
+
+int main()
+{
+	std::vector<std::string> v1(3);
+	v1[0] = "Cat"; v1[1] = "Dog"; v1[2] = "Nyancat";
+
+	std::cout << findMax(v1, CaseInsentiveCompare()) << std::endl;
+
+	return 0;
+}
+```
