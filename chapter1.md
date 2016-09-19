@@ -216,3 +216,35 @@ int main()
 	
 	return 0;
 }
+
+Operator overloading
+--------------------
+
+In C++ it's possible to overload the default behaviour of for example the << or the < operator for a class.
+
+```
+class Cell
+{
+	public:
+		explicit Cell(const int & input) : val(input) {}
+		const int & read( ) const
+		{ return val; }
+		void write(const int & v)
+		{ val = v; }
+		bool operator< (const Cell & rhs) const
+		{ return val < rhs.val; }
+	private:
+		int val;
+};
+
+int main()
+{
+	Cell c1(1);
+	Cell c2(3);
+
+	if (c1 < c2)
+		std::cout << "c1 < c2" << std::endl;
+	
+	return 0;
+}
+```
