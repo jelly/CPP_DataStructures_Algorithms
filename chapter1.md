@@ -152,4 +152,67 @@ Foo C;
 B = C;
 ```
 
+Templates
+---------
 
+Function templates
+------------------
+
+A **function template** is not an actual function, but a pattern for what could become a function.
+
+```
+template <typename Cmp>
+const Cmp & findMax(const std::vector<Cmp> & v)
+{
+	int max = 0;
+
+	for (int i = 0; i < v.size(); i++)
+		if (v[max] < v[i])
+			max = i;
+	return v[max];
+}
+
+int main()
+{
+	std::vector<int> v1(37, 40);
+	std::vector<double> v2(42.0, 90.0);
+
+	std::cout << findMax(v1) << std::endl;
+	std::cout << findMax(v2) << std::endl;
+
+	return 0;
+}
+```
+
+Class templates
+---------------
+
+A class template is much the same as a function template.
+
+```
+template <typename Obj>
+class Cell
+{
+	public:
+		explicit Cell(const Obj & input = Obj()) : val(input) {}
+		const Obj & read( ) const
+		{ return val; }
+		void write(const Obj & obj)
+		{ val = obj; }
+	private:
+		Obj val;
+}
+
+int main()
+{
+	Cell<int> c1;
+	Cell<std::string> c2;
+
+	c1.write(38);
+	std::cout << c1.read() << std::endl;
+
+	c2.write("hello world!");
+	std::cout << c2.read() << std::endl;
+	
+	return 0;
+}
